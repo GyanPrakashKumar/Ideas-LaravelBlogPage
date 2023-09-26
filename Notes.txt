@@ -1,0 +1,171 @@
+Install PHP 8.1 or later on your PC. Laravel 10 only runs on PHP 8.1 or greater.
+Download and install Composer onto your PC.
+Create a Laravel 10 application using Composer.
+-- or --
+Install XAMPP (to install PHP and MySQL)
+Install Composer.
+Verify Composer installation.
+Install Laravel using Composer.
+
+## Setup Laravel Project ##
+--> composer create-project laravel/laravel project_name
+--> cd project_name
+--> php artisan serve
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Setup Laravel Project with Jetstream ##
+--> composer create-project laravel/laravel project_name --jet
+--> cd project_name
+--> php artisan jetstream:install livewire
+--> npm install && npm run dev
+--> php artisan migrate
+--> php artisan serve
+
+## Setup Laravel Project with Jetstream and Inertia ##
+--> composer create-project laravel/laravel project_name --jet
+--> cd project_name
+--> php artisan jetstream:install inertia
+--> npm install && npm run dev
+--> php artisan migrate
+--> php artisan serve
+
+## Setup Laravel Project with Jetstream and Livewire ##
+--> composer create-project laravel/laravel project_name --jet
+--> cd project_name
+--> php artisan jetstream:install livewire
+--> npm install && npm run dev
+--> php artisan migrate
+--> php artisan serve
+
+## Setup Laravel Project with Jetstream and Tailwind ##
+--> composer create-project laravel/laravel project_name --jet
+--> cd project_name
+--> php artisan jetstream:install livewire --teams
+--> npm install && npm run dev
+--> php artisan migrate
+--> php artisan serve
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Make Controller via CMD ##
+--> php artisan make:controller ControllerName
+
+## Make Model via CMD ##
+--> php artisan make:model ModelName
+
+## Make Migration via CMD ##
+--> php artisan make:migration migration_name
+
+## Make Seeder via CMD ##
+--> php artisan make:seeder SeederName
+
+## Make Factory via CMD ##
+--> php artisan make:factory FactoryName
+
+## Make Request via CMD ##
+--> php artisan make:request RequestName
+
+## Make Middleware via CMD ##
+--> php artisan make:middleware MiddlewareName
+
+## Make Mail via CMD ##
+--> php artisan make:mail MailName
+
+## Make Notification via CMD ##
+--> php artisan make:notification NotificationName
+
+## Make Event via CMD ##
+--> php artisan make:event EventName
+
+## Make Listener via CMD ##
+--> php artisan make:listener ListenerName
+
+## Make Job via CMD ##
+--> php artisan make:job JobName
+
+## Make Policy via CMD ##
+--> php artisan make:policy PolicyName
+
+## Make Provider via CMD ##
+--> php artisan make:provider ProviderName
+
+## Make Resource via CMD ##
+--> php artisan make:resource ResourceName
+
+## Make Rule via CMD ##
+--> php artisan make:rule RuleName
+
+## Make Test via CMD ##
+--> php artisan make:test TestName
+
+## Make Channel via CMD ##
+--> php artisan make:channel ChannelName
+
+## Make Exception via CMD ##
+--> php artisan make:exception ExceptionName
+
+## Make Console via CMD ##
+--> php artisan make:console ConsoleName
+
+## Make Command via CMD ##
+--> php artisan make:command CommandName
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Blade Template ##
+--> @yield('content')
+--> @extends('layouts.app')
+--> @section('content')
+--> @endsection
+
+## Route ##
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/about', function () {
+        return view('about');
+    });
+
+    Route::get('/contact', function () {
+        return <h1>Contact Us</h1>;
+    });
+
+## Route with Parameter ##
+    Route::get('/post/{id}', function ($id) {
+        return "This is post number " . $id;
+    });
+
+    Route::get('/post/{id}/{name}', function ($id, $name) {
+        return "This is post number " . $id . " " . $name;
+    });
+
+## Controller ##
+    Route::get('/post/{id}', 'PostsController@index');
+
+    Route::resource('posts', 'PostsController');
+
+## How to write a controller file ##
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use Illuminate\Http\Request;
+
+    class PostsController extends Controller
+    {
+        public function index()
+        {
+            return "It's working";
+        }
+    }
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+## MVC ##
+    M -> Model: Handle data logics and database [Database]
+    V -> View: What should be shown to the user [HTML/CSS/JS or Blade Files]
+    C -> Controller: Handles the requests and returns responses
+
