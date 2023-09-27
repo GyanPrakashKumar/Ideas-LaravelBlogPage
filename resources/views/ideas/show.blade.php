@@ -14,16 +14,8 @@
         </div>
         <div class="col-6">
             @include('shared.success_msg')
-            @include('shared.idea_form')
-            <hr>
-            @foreach ($ideas as $idea)
-                <div class="mt-3">
-                    @include('shared.idea_card')
-                </div>
-            @endforeach
             <div class="mt-3">
-                {{-- Pagination --}}
-                {{ $ideas->links() }}
+                @include('shared.idea_card')
             </div>
         </div>
         <div class="col-3">

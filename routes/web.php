@@ -19,7 +19,19 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // Submit idea_form to database
 // Route::post('/idea', [IdeaController::class, 'store']);
-Route::post('/idea', [IdeaController::class, 'store'])->name('idea.created');
+Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
+
+// Showing single idea
+Route::get('/ideas/{id}', [IdeaController::class, 'show'])->name('ideas.show');
+
+// Editing single idea
+Route::get('/ideas/{id}/edit', [IdeaController::class, 'edit'])->name('ideas.edit');
+
+// Updating single idea
+Route::put('/ideas/{id}', [IdeaController::class, 'update'])->name('ideas.update');
+
+// delete a post
+Route::delete('/ideas/{id}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
 
 Route::get('/terms', function () {
     return view('terms');
