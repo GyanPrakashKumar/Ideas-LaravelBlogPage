@@ -22,16 +22,16 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
 
 // Showing single idea
-Route::get('/ideas/{id}', [IdeaController::class, 'show'])->name('ideas.show');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
 
 // Editing single idea
-Route::get('/ideas/{id}/edit', [IdeaController::class, 'edit'])->name('ideas.edit');
+Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit');
 
 // Updating single idea
-Route::put('/ideas/{id}', [IdeaController::class, 'update'])->name('ideas.update');
+Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update');
 
 // delete a post
-Route::delete('/ideas/{id}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
+Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
 
 Route::get('/terms', function () {
     return view('terms');

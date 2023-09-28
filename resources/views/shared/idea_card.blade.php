@@ -12,9 +12,9 @@
             <div>
                 <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
                     @csrf
+                    @method('delete')
                     <a href="{{ route('ideas.edit', $idea->id) }}"> Edit </a>
                     <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}"> View </a>
-                    @method('delete')
                     <button class="btn btn-danger btn-sm">X</button>
                 </form>
             </div>
@@ -22,8 +22,9 @@
     </div>
     <div class="card-body">
         @if ($editing ?? false)
-            <form action="{{ route('ideas.update'), $idea->id }}" method="post">
+            <form action="{{ route('ideas.update', $idea->id) }}" method="post">
                 @csrf
+                @method('put')
                 <div class="mb-3">
                     <textarea name="content" class="form-control" id="content" rows="3">
                         {{ $idea->content }}
@@ -33,7 +34,7 @@
                     @enderror
                 </div>
                 <div class="">
-                    <button type="submit" class="btn btn-dark"> Share </button>
+                    <button type="submit" class="btn btn-dark btn-sm mb-2"> Update </button>
                 </div>
             </form>
         @else
