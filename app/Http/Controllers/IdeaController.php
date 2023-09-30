@@ -30,6 +30,9 @@ class IdeaController extends Controller
 
     public function show(Idea $idea)
     {
+
+        // dd($idea->commentBoxes); // will show all comments of this idea
+
         return view('ideas.show', [
             'idea' => $idea
         ]);

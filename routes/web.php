@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentBoxController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,10 @@ Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.upda
 
 // delete a post
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
+
+// Strore comments
+Route::post('/ideas/{idea}/comments', [CommentBoxController::class, 'store'])->name('ideas.comments.store');
+
 
 Route::get('/terms', function () {
     return view('terms');
