@@ -13,10 +13,15 @@ class Idea extends Model
         'content',
         'likes'
     ];
+    // you need anyone, either $fillable or $guarded
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
 
     public function commentBoxes()
     {
         return $this->hasMany(CommentBox::class);
     }
-
 }

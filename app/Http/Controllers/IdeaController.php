@@ -18,9 +18,10 @@ class IdeaController extends Controller
             'content' => 'required|min:5|max:240'
         ]);
 
-        $idea = Idea::create([
-            'content' => request()->get('content', ''),
-        ]);
+        $idea = Idea::create(request()->all());
+        // $idea = Idea::create([
+        //     'content' => request()->get('content', ''),
+        // ]);
         // $idea->save();
 
         return redirect()->route('dashboard')->with('success', 'Idea created successfully');
