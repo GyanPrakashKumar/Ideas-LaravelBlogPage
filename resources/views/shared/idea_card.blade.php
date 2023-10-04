@@ -3,19 +3,28 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Avatar">
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> Gyan
-                        </a></h5>
+                    <h5 class="card-title mb-0">
+                        <a href="#" class="link-underline link-underline-opacity-0">Gyan</a>
+                    </h5>
                 </div>
             </div>
             <div>
                 <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <a href="{{ route('ideas.edit', $idea->id) }}"> Edit </a>
-                    <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}"> View </a>
-                    <button class="btn btn-danger btn-sm">X</button>
+                    <a class="link-underline link-underline-opacity-0" title="edit"
+                        href="{{ route('ideas.edit', $idea->id) }}">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a class="mx-2 link-underline link-underline-opacity-0" title="view"
+                        href="{{ route('ideas.show', $idea->id) }}">
+                        <i class="fa-solid fa-expand"></i>
+                    </a>
+                    <button class="btn p-0 text-danger" title="delete">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -48,7 +57,8 @@
                     </span> {{ $idea->likes }} </a>
             </div>
             <div>
-                <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
+                <span class="fs-6 fw-light text-muted">
+                    <span class="fas fa-clock"></span>
                     {{ $idea->created_at }}
                 </span>
             </div>
